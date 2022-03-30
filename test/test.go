@@ -28,35 +28,35 @@ func Unequal(t *testing.T, expected, actual interface{}) {
 	}
 }
 
-// gt
+// Gt
 // @Description: Expect a greater than b.
 // @param t
 // @param a
 // @param b
-func gt(t *testing.T, a, b float64) {
+func Gt(t *testing.T, a, b float64) {
 	if a <= b {
 		t.Errorf("Expected %v (type %v) > Got %v (type %v)", a, reflect.TypeOf(a), b, reflect.TypeOf(b))
 	}
 }
 
-// gte
+// Gte
 // @Description: Expect a greater than or equal to b.
 // @param t
 // @param a
 // @param b
-func gte(t *testing.T, a, b float64) {
+func Gte(t *testing.T, a, b float64) {
 	if a < b {
 		t.Errorf("Expected %v (type %v) > Got %v (type %v)", a, reflect.TypeOf(a), b, reflect.TypeOf(b))
 	}
 }
 
-// rangeValue
+// RangeValue
 // @Description: Expected value needs to be within range.
 // @param t
 // @param min
 // @param max
 // @param actual
-func rangeValue(t *testing.T, min, max, actual float64) {
+func RangeValue(t *testing.T, min, max, actual float64) {
 	if actual < min || actual > max {
 		t.Errorf("Expected range of %v-%v (type %v) > Got %v (type %v)", min, max, reflect.TypeOf(min), actual, reflect.TypeOf(actual))
 	}
