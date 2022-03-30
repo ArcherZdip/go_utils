@@ -5,6 +5,14 @@
 ![GitHub](https://img.shields.io/github/license/archerzdip/go_utils)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ArcherZdip/go_utils/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ArcherZdip/go_utils/?branch=main)
 
+## Install
+```bash
+go get github.com/ArcherZdip/go_utils
+```
+
 ## 参考
-[https://github.com/syyongx/php2go](https://github.com/syyongx/php2go)
+[https://github.com/syyongx/php2go](https://github.com/syyongx/php2go)  
 [https://github.com/spf13/cast](https://github.com/spf13/cast)
+
+## LICENSE
+MIT
