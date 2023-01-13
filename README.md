@@ -7,7 +7,7 @@
 
 ## Install
 ```bash
-go get github.com/ArcherZdip/go_utils
+go get github.com/archerzdip/go_utils
 ```
 
 ## 参考

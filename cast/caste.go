@@ -16,7 +16,7 @@ var errNegativeNotAllowed = errors.New("unable to cast negative value")
 // @param i
 // @return bool
 // @return error
-func ToBoolE(i interface{}) (bool, error) {
+func ToBoolE(i interface{}, def ...bool) (bool, error) {
 	i = indirect(i)
 
 	switch b := i.(type) {
@@ -32,6 +32,9 @@ func ToBoolE(i interface{}) (bool, error) {
 	case string:
 		return strconv.ParseBool(i.(string))
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return false, fmt.Errorf("unable to cast %#v of type %T to bool", i, i)
 	}
 }
@@ -41,7 +44,7 @@ func ToBoolE(i interface{}) (bool, error) {
 // @param i
 // @return int
 // @return error
-func ToIntE(i interface{}) (int, error) {
+func ToIntE(i interface{}, def ...int) (int, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -82,6 +85,9 @@ func ToIntE(i interface{}) (int, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to int", i, i)
 	}
 }
@@ -91,7 +97,7 @@ func ToIntE(i interface{}) (int, error) {
 // @param i
 // @return int8
 // @return error
-func ToInt8E(i interface{}) (int8, error) {
+func ToInt8E(i interface{}, def ...int8) (int8, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -132,6 +138,9 @@ func ToInt8E(i interface{}) (int8, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to int8", i, i)
 	}
 }
@@ -141,7 +150,7 @@ func ToInt8E(i interface{}) (int8, error) {
 // @param i
 // @return int16
 // @return error
-func ToInt16E(i interface{}) (int16, error) {
+func ToInt16E(i interface{}, def ...int16) (int16, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -182,6 +191,9 @@ func ToInt16E(i interface{}) (int16, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to int16", i, i)
 	}
 }
@@ -191,7 +203,7 @@ func ToInt16E(i interface{}) (int16, error) {
 // @param i
 // @return int32
 // @return error
-func ToInt32E(i interface{}) (int32, error) {
+func ToInt32E(i interface{}, def ...int32) (int32, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -232,6 +244,9 @@ func ToInt32E(i interface{}) (int32, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to int32", i, i)
 	}
 }
@@ -241,7 +256,7 @@ func ToInt32E(i interface{}) (int32, error) {
 // @param i
 // @return int64
 // @return error
-func ToInt64E(i interface{}) (int64, error) {
+func ToInt64E(i interface{}, def ...int64) (int64, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -282,6 +297,9 @@ func ToInt64E(i interface{}) (int64, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to int64", i, i)
 	}
 }
@@ -291,7 +309,7 @@ func ToInt64E(i interface{}) (int64, error) {
 // @param i
 // @return uint
 // @return error
-func ToUintE(i interface{}) (uint, error) {
+func ToUintE(i interface{}, def ...uint) (uint, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -353,6 +371,9 @@ func ToUintE(i interface{}) (uint, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to uint", i, i)
 	}
 }
@@ -362,7 +383,7 @@ func ToUintE(i interface{}) (uint, error) {
 // @param i
 // @return uint8
 // @return error
-func ToUint8E(i interface{}) (uint8, error) {
+func ToUint8E(i interface{}, def ...uint8) (uint8, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -424,6 +445,9 @@ func ToUint8E(i interface{}) (uint8, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to uint8", i, i)
 	}
 }
@@ -433,7 +457,7 @@ func ToUint8E(i interface{}) (uint8, error) {
 // @param i
 // @return uint16
 // @return error
-func ToUint16E(i interface{}) (uint16, error) {
+func ToUint16E(i interface{}, def ...uint16) (uint16, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -495,6 +519,9 @@ func ToUint16E(i interface{}) (uint16, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to uint16", i, i)
 	}
 }
@@ -504,7 +531,7 @@ func ToUint16E(i interface{}) (uint16, error) {
 // @param i
 // @return uint32
 // @return error
-func ToUint32E(i interface{}) (uint32, error) {
+func ToUint32E(i interface{}, def ...uint32) (uint32, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -566,6 +593,9 @@ func ToUint32E(i interface{}) (uint32, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to uint32", i, i)
 	}
 }
@@ -575,7 +605,7 @@ func ToUint32E(i interface{}) (uint32, error) {
 // @param i
 // @return uint64
 // @return error
-func ToUint64E(i interface{}) (uint64, error) {
+func ToUint64E(i interface{}, def ...uint64) (uint64, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -637,6 +667,9 @@ func ToUint64E(i interface{}) (uint64, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to uint64", i, i)
 	}
 }
@@ -646,7 +679,7 @@ func ToUint64E(i interface{}) (uint64, error) {
 // @param i
 // @return float32
 // @return error
-func Tofloat32E(i interface{}) (float32, error) {
+func Tofloat32E(i interface{}, def ...float32) (float32, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -687,6 +720,9 @@ func Tofloat32E(i interface{}) (float32, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to float32", i, i)
 	}
 }
@@ -696,7 +732,7 @@ func Tofloat32E(i interface{}) (float32, error) {
 // @param i
 // @return float64
 // @return error
-func Tofloat64E(i interface{}) (float64, error) {
+func Tofloat64E(i interface{}, def ...float64) (float64, error) {
 	i = indirect(i)
 	switch t := i.(type) {
 	case int:
@@ -737,6 +773,9 @@ func Tofloat64E(i interface{}) (float64, error) {
 	case nil:
 		return 0, nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return 0, fmt.Errorf("unable to cast %#v of type %T to float64", i, i)
 	}
 }
@@ -746,7 +785,7 @@ func Tofloat64E(i interface{}) (float64, error) {
 // @param i
 // @return string
 // @return error
-func ToStringE(i interface{}) (string, error) {
+func ToStringE(i interface{}, def ...string) (string, error) {
 	i = indirectToStringerOrError(i)
 
 	switch s := i.(type) {
@@ -797,6 +836,9 @@ func ToStringE(i interface{}) (string, error) {
 	case error:
 		return s.Error(), nil
 	default:
+		if len(def) > 0 {
+			return def[0], nil
+		}
 		return "", fmt.Errorf("unable to cast %#v of type %T to string", i, i)
 	}
 }

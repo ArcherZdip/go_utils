@@ -2,9 +2,10 @@
 package time
 
 import (
-	"go_utils/cast"
-	"go_utils/test"
 	"testing"
+
+	"github.com/archerzdip/go_utils/cast"
+	"github.com/archerzdip/go_utils/test"
 )
 
 // TestTime

@@ -2,8 +2,9 @@
 package url
 
 import (
-	"go_utils/test"
 	"testing"
+
+	"github.com/archerzdip/go_utils/test"
 )
 
 // TestHttpBuildQueryByMap

@@ -2,9 +2,10 @@
 package cast
 
 import (
-	"go_utils/test"
 	"html/template"
 	"testing"
+
+	"github.com/archerzdip/go_utils/test"
 )
 
 // TestToBoolE
@@ -37,6 +38,10 @@ func TestToBoolE(t *testing.T) {
 		{"test", false, true},
 		{testing.T{}, false, true},
 	}
+
+	// def
+	rv, _ := ToBoolE(testing.T{}, false)
+	test.Equal(t, rv, false)
 
 	for _, vv := range tests {
 		v, err := ToBoolE(vv.actual)
@@ -79,6 +84,10 @@ func TestToIntE(t *testing.T) {
 		{testing.T{}, 0, true},
 	}
 
+	// def
+	rv, _ := ToIntE(testing.T{}, 123)
+	test.Equal(t, rv, 123)
+
 	for _, vv := range tests {
 		v, err := ToIntE(vv.actual)
 		if vv.is_err {
@@ -120,6 +129,11 @@ func TestToInt8E(t *testing.T) {
 		{testing.T{}, 0, true},
 	}
 
+	// def
+	rv, _ := ToInt8E(testing.T{}, 8)
+	var actual int8 = 8
+	test.Equal(t, rv, actual)
+
 	for _, vv := range tests {
 		v, err := ToInt8E(vv.actual)
 		if vv.is_err {
@@ -160,6 +174,11 @@ func TestToInt16E(t *testing.T) {
 		{"test", 0, true},
 		{testing.T{}, 0, true},
 	}
+
+	// def
+	rv, _ := ToInt16E(testing.T{}, 8)
+	var actual int16 = 8
+	test.Equal(t, rv, actual)
 
 	for _, vv := range tests {
 		v, err := ToInt16E(vv.actual)
